@@ -11,8 +11,10 @@ services:
     environment:
       - DB_TYPE=postgres
       - DB_HOST=localhost
-      - DB_PASS=password
+      - DB_PASS=${DB_PASS}
       - DB_PORT=5432
+      - QUEUE_CONCURRENCY=${QUEUE_CONCURRENCY}
+      - TZ=${TZ}
     volumes:
       # Database data persistence
       - ./.data/postgres:/var/lib/postgresql/data
