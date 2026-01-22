@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.bundle.postgres
-    restart: unless-stopped
+    restart: always
     ports:
       - "8383:8383"
     env_file:
@@ -15,17 +15,16 @@ services:
       - DB_PORT=5432
       - QUEUE_CONCURRENCY=${QUEUE_CONCURRENCY}
       - TZ=${TZ}
-      - LOG_LEVEL=warn
+      - LOG_LEVEL=error
     volumes:
-      # Database data persistence
-      - ./.data/postgres:/var/lib/postgresql/data
-      # Application logs persistence
-      - ./.data/logs:/var/log/supervisor
-      # Optional: Custom Caddyfile override
-      # - ./custom-Caddyfile:/etc/caddy/Caddyfile:ro
+      - peekaping_pg_data:/var/lib/postgresql/data
+      - peekaping_logs:/var/log/supervisor
     container_name: peekaping-bundle-postgres
     logging:
       driver: "json-file"
       options:
         max-size: "50m"
         max-file: "3" 
+volumes:
+  peekaping_pg_data:
+  peekaping_logs:
