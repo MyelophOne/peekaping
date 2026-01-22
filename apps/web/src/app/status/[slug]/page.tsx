@@ -245,15 +245,15 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
           <h1 className="text-3xl font-bold mb-2">{statusPage.title}</h1>
 
           {statusPage.description && (
-            <p className="text-muted-foreground mb-4">
+            <p className="text-muted-foreground mb-4 mt-4">
               {statusPage.description}
             </p>
           )}
 
           {/* Theme Toggle */}
-          <div className="flex justify-center mb-4">
+          {/*<div className="flex justify-center mb-4">
             <ThemeToggle />
-          </div>
+          </div>*/}
 
           {/* Overall Status */}
           <div className="flex items-center justify-center gap-2 mb-6">
@@ -380,10 +380,12 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
               <RefreshCw className="h-4 w-4" />
               <span>{t("status.messages.refresh_now")}</span>
             </button>
+
+            <ThemeToggle />
           </div>
         </div>
 
-        <div className="text-center">
+        {/*<div className="text-center">
           <p className="text-xs text-muted-foreground">
             {t("status.messages.powered_by")}{" "}
             <a
@@ -393,7 +395,7 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
               Peekaping
             </a>
           </p>
-        </div>
+        </div>*/}
       </div>
     </div>
   );
