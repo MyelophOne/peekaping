@@ -364,7 +364,7 @@ const PublicStatusPage = ({ incomingSlug }: { incomingSlug?: string }) => {
             </div>
             <div className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
-              <span className="w-[150px]">
+              <span className="w-auto">
                 {t("status.messages.refresh_in")}: {formatCountdown(countdown)}
               </span>
             </div>
