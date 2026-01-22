@@ -11,6 +11,7 @@ services:
     environment:
       - DB_TYPE=sqlite
       - DB_NAME=/app/data/peekaping.db
+      - QUEUE_CONCURRENCY=20
     volumes:
       # Database data persistence
       - ./.data/sqlite:/app/data
